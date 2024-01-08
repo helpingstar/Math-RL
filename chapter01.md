@@ -486,3 +486,166 @@ $$
 $$
 
 ---
+
+$$
+F_{X_1,\ldots,X_n}(x_1, x_2, \ldots, x_n) = P\{X_1 \leq x_1, X_2 \leq x_2, \ldots, X_n \leq x_n\} \tag{1.63}
+$$
+
+$$
+F_\mathrm{X}(\mathrm{x}) = F_{X_1,\ldots,X_n}(x_1, x_2, \ldots, x_n) \tag{1.64}
+$$
+
+$$
+\mathrm{X} = \begin{bmatrix} X_1 \\ X_2 \\ \vdots \\ X_n \end{bmatrix}, \mathrm{x} = \begin{bmatrix} x_1 \\ x_2 \\ \vdots \\ x_n \end{bmatrix}
+$$
+
+$$
+F_\mathrm{X}(\mathrm{x}) = \int_{-\infty}^{x_1} \int_{-\infty}^{x_2} \ldots \int_{-\infty}^{x_n} p_{X_1,\ldots,X_n}(u_1, u_2, \ldots, u_n)  du_n \ldots du_2  du_1
+\tag{1.65}
+$$
+
+$$
+p_{X_1,\ldots,X_n}(x_1, x_2, \ldots, x_n) = p_\mathrm{X}(\mathrm{x})\tag{1.66}
+$$
+
+$$
+\int_{-\infty}^{x_1} \int_{-\infty}^{x_2} \ldots \int_{-\infty}^{x_n} \ldots du_1 du_2 \ldots du_n = \int_{-\infty}^{\mathrm{x}} \ldots \mathrm{du}\tag{1.67}
+$$
+
+$$
+F_\mathrm{X}(\mathrm{x}) = \int_{-\infty}^{\mathrm{x}} p_\mathrm{X}(\mathrm{u}) \mathrm{du}
+\tag{1.68}
+$$
+
+$$
+\begin{align*}
+& p_{X_1}(x_1), p_{X_2}(x_2), p_{X_3}(x_3) \\
+& p_{X_1, X_2}(x_1, x_2), p_{X_1, X_3}(x_1, x_3), p_{X_2, X_3}(x_2, x_3)
+\end{align*}
+$$
+
+$$
+\begin{align*}
+& p_{X_1}(x_1) = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} p_\mathrm{X}(\mathrm{x})  dx_2  dx_3 \\
+& p_{X_1, X_2}(x_1, x_2) = \int_{-\infty}^{\infty} p_\mathrm{X}(\mathrm{x})  dx_3
+\end{align*}
+$$
+
+$$
+\begin{align*}
+P(X \leq \mathrm{x} | Y = \mathrm{y}) = \int_{-\infty}^{\mathrm{x}} p_{\mathrm{X|Y}}(\mathrm{u|y})\mathrm{du}
+\end{align*}
+\tag{1.69}
+$$
+
+$$
+\begin{align*}
+\{\mathrm{X} \leq \mathrm{x}\} &= \{X_1 \leq x_1, X_2 \leq x_2, \ldots, X_n \leq x_n\} \\
+\{\mathrm{Y} = \mathrm{y}\} &= \{Y_1 = y_1, Y_2 = y_2, \ldots, Y_m = y_m\} \\
+p_{\mathrm{X|Y}}(\mathrm{u|y}) &= p_{X_1,\ldots,X_n|Y_1,\ldots,Y_m}(u_1, u_2, \ldots, u_n | y_1, y_2, \ldots, y_m)
+\end{align*}
+\tag{1.70}
+$$
+
+$$
+p_{\mathrm{X|Y}}(\mathrm{x|y}) = \frac{p_{\mathrm{XY}}(\mathrm{x, y})}{p_\mathrm{Y}(\mathrm{y})} = \frac{p_{X_1,\ldots,X_n,Y_1,\ldots,Y_m}(x_1, \ldots, x_n, y_1, \ldots, y_m)}{p_{Y_1,\ldots,Y_m}(y_1, \ldots, y_m)}
+\tag{1.71}
+$$
+
+$$
+\begin{align*}
+p_\mathrm{X}(\mathrm{x}) & = p_{X_1,...,X_n}(x_1, x_2, ..., x_n) \\
+& = p_{X_1}(x_1)p_{X_2}(x_2) \cdots p_{X_n}(x_n) \\
+& = \prod_{i=1}^{n} p_{X_i}(x_i)
+\end{align*}
+\tag{1.72}
+$$
+
+$$
+p_{X_1, X_2|X_3}(x_1, x_2 | x_3) = p_{X_1|X_3}(x_1 | x_3) p_{X_2|X_3}(x_2 | x_3) \tag{1.73}
+$$
+
+$$
+\begin{align*}
+\mathbb{E}[\mathrm{X}] = \begin{bmatrix}
+\mathbb{E}[X_1] \\
+\vdots \\
+\mathbb{E}[X_n]
+\end{bmatrix} &= \int_{-\infty}^{\infty} \mathrm{x} p_\mathrm{X}(\mathrm{x}) \mathrm{dx} \\
+& = \int_{-\infty}^{\infty} \begin{bmatrix}
+x_1 \\
+\vdots \\
+x_n
+\end{bmatrix} p_\mathrm{X}(\mathrm{x}) \mathrm{dx}\tag{1.74}
+\end{align*}
+$$
+
+$$
+\mathbb{E}[X_i] = \int_{-\infty}^{\infty} x_i p_{X_i}(x_i)  dx_i = \int_{-\infty}^{\infty} x_i p_{\mathrm{X}}(\mathrm{x}) \mathrm{dx} \tag{1.75}
+$$
+
+$$
+\mathbb{E}[g(\mathrm{X})] = \int_{-\infty}^{\infty} g(\mathrm{x}) p_\mathrm{X}(\mathrm{x}) \mathrm{dx}
+\tag{1.76}
+$$
+
+$$
+\begin{align*}
+Cov(\mathrm{X}) &= \mathbb{E}[(\mathrm{X} - \mathbb{E}[\mathrm{X}])(\mathrm{X} - \mathbb{E}[\mathrm{X}])^T] \\
+&= \int_{-\infty}^{\infty} (\mathrm{x} - \mathbb{E}[\mathrm{X}])(\mathrm{x} - \mathbb{E}[\mathrm{X}])^T p_{\mathrm{X}}(\mathrm{x}) \mathrm{dx} \\
+&= \begin{bmatrix}
+\sigma_{11} & \sigma_{12} & \cdots & \sigma_{1n} \\
+\sigma_{21} & \sigma_{22} & \cdots & \sigma_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\sigma_{n1} & \sigma_{n2} & \cdots & \sigma_{nn} \\
+\end{bmatrix}
+\end{align*}\tag{1.77}
+$$
+
+$$
+\begin{align*}
+& \mathbb{E}[\mathrm{X}\mathrm{Y}^T] = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \mathrm{x} \mathrm{y}^T p_{\mathrm{XY}}(\mathrm{x}, \mathrm{y})  \mathrm{dx}\mathrm{dy} \\
+& \mathbb{E}[(\mathrm{X} - \mathbb{E}[\mathrm{X}])(\mathrm{Y} - \mathbb{E}[\mathrm{Y}])^T] = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} (\mathrm{x} - \mathbb{E}[\mathrm{X}])(\mathrm{y} - \mathbb{E}[\mathrm{Y}])^T p_{\mathrm{XY}}(\mathrm{x}, \mathrm{y})  \mathrm{dx}\mathrm{dy}
+\end{align*}
+\tag{1.78}
+$$
+
+$$
+p_{\mathrm{XY}}(\mathrm{x}, \mathrm{y}) = p_{\mathrm{X}}(\mathrm{x})p_{\mathrm{Y}}(\mathrm{y})
+\tag{1.79}
+$$
+
+$$
+\mathbb{E}[\mathrm{X}|\mathrm{Y}=\mathrm{y}] = \int_{-\infty}^{\infty} \mathrm{x} p_{\mathrm{XY}}(\mathrm{x}|\mathrm{y}) \mathrm{dx}
+\tag{1.80}
+$$
+
+$$
+\mathbb{E}[\mathrm{X|Y}] = \int_{-\infty}^{\infty} \mathrm{x} p_{\mathrm{XY}}(\mathrm{x}|\mathrm{Y}) \mathrm{dx}
+\tag{1.81}
+$$
+
+$$
+Cov(\mathrm{X|Y=y}) = \mathbb{E}[(\mathrm{X} - \mathbb{E}[\mathrm{X|Y=y}])(\mathrm{X} - \mathbb{E}[\mathrm{X|Y=y}])^T|\mathrm{Y=y}]
+\tag{1.82}
+$$
+
+$$
+Cov(\mathrm{X|Y}) = \mathbb{E}[(\mathrm{X} - \mathbb{E}[\mathrm{X|Y}])(\mathrm{X} - \mathbb{E}[\mathrm{X|Y}])^T|\mathrm{Y}]
+\tag{1.83}
+$$
+
+$$
+p_{\mathrm{X}}(\mathrm{x}) \approx \sum_{i=1}^{N} w_{X}(\mathrm{x}^{(i)}) \delta(\mathrm{x} - \mathrm{x}^{(i)}) = \frac{1}{N} \sum_{i=1}^{N} \delta(\mathrm{x} - \mathrm{x}^{(i)})
+\tag{1.84}
+$$
+
+$$
+\begin{align*}
+\mathbb{E}[\mathrm{X}] &= \int_{-\infty}^{\infty} \mathrm{x} p_{\mathrm{X}}(\mathrm{x}) \mathrm{d}\mathrm{x} \\
+&\approx \int_{-\infty}^{\infty} \mathrm{x} \frac{1}{N} \sum_{i=1}^{N} \delta(\mathrm{x}-\mathrm{x}^{(i)}) \mathrm{d}\mathrm{x} \\
+&= \frac{1}{N} \sum_{i=1}^{N} \int_{-\infty}^{\infty} \mathrm{x} \delta(\mathrm{x}-\mathrm{x}^{(i)}) \mathrm{d}\mathrm{x} \\
+&= \frac{1}{N} \sum_{i=1}^{N} \mathrm{x}^{(i)}
+\end{align*}
+\tag{1.85}
+$$
