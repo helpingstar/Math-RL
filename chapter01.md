@@ -649,3 +649,97 @@ $$
 \end{align*}
 \tag{1.85}
 $$
+
+$$
+\begin{align*}
+\mathbb{E}[g(\mathrm{X})] &= \int_{-\infty}^{\infty} g(\mathrm{x}) p_{\mathrm{X}}(\mathrm{x}) \mathrm{dx} \\
+&\approx \frac{1}{N} \sum_{i=1}^{N} \int_{-\infty}^{\infty} g(\mathrm{x}) \delta(\mathrm{x}-\mathrm{x}^{(i)}) \mathrm{dx} \\
+&= \frac{1}{N} \sum_{i=1}^{N} g(\mathrm{x}^{(i)})
+\end{align*}
+\tag{1.86}
+$$
+
+---
+
+### 노트: p.38
+
+$$
+\int_{-\infty}^{\infty} f(x) \delta (x-a)dx = \int_{a - \epsilon}^{a + \epsilon} f(x) \delta (x-a)dx
+$$
+
+$$
+\begin{align*}
+\int_{a - \epsilon}^{a + \epsilon} f(x) \delta (x-a)dx &= f(a) \int_{a - \epsilon}^{a + \epsilon} \delta (x-a)dx \\
+&=f(a)
+\end{align*}
+$$
+
+$$
+\int_{-\infty}^{\infty} f(x) \delta (x-a)dx = f(a)
+$$
+
+---
+
+
+$$
+p_{X}(x) = N(x | \mu, \sigma^2) \equiv \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left\{ -\frac{(x - \mu)^2}{2\sigma^2} \right\}
+\tag{1.87}
+$$
+
+$$
+\begin{align*}
+p_{\mathrm{X}}(\mathrm{x}) &= N(\mathrm{x} | \mu_{\mathrm{X}}, P_{\mathrm{XX}}) \\ 
+&= \frac{1}{\sqrt{(2\pi)^n \det P_{\mathrm{XX}}}} \exp\left\{ -\frac{1}{2} (\mathrm{x} - \mu_{\mathrm{X}})^T P_{\mathrm{XX}}^{-1} (\mathrm{x} - \mu_{\mathrm{X}}) \right\}
+\end{align*}
+\tag{1.88}
+$$
+
+$$
+\int_{-\infty}^{\infty} N(\mathrm{x}|\mu_{\mathrm{X}}, P_{\mathrm{XX}}) \mathrm{dx} = 1 \\
+\int_{-\infty}^{\infty} \mathrm{x} N(\mathrm{x}|\mu_{\mathrm{X}}, P_{\mathrm{XX}}) \mathrm{dx} = \mu_{\mathrm{X}} \\
+\int_{-\infty}^{\infty} (\mathrm{X} - \mu_{\mathrm{X}})(\mathrm{X} - \mu_{\mathrm{X}})^T N(\mathrm{x}|\mu_{\mathrm{X}}, P_{\mathrm{XX}}) \mathrm{dx} = P_{\mathrm{XX}}
+\tag{1.89}
+$$
+
+$$
+p_{\mathrm{XY}}(\mathrm{x}, \mathrm{y}) = p_{\mathrm{Z}}(\mathrm{z}) = N(\mathrm{z} | \mu_{\mathrm{Z}}, P_{\mathrm{ZZ}})
+\tag{1.90}
+$$
+
+$$
+\mu_{\mathrm{Z}} = \begin{bmatrix}
+\mu_{\mathrm{X}} \\
+\mu_{\mathrm{Y}}
+\end{bmatrix}, \quad P_{\mathrm{ZZ}} = \begin{bmatrix}
+P_{\mathrm{XX}} & P_{\mathrm{XY}} \\
+P_{\mathrm{YX}} & P_{\mathrm{YY}}
+\end{bmatrix}
+\tag{1.91}
+$$
+
+$$
+P_{\mathrm{XX}} = \mathbb{E}[(\mathrm{X} - \mu_{\mathrm{X}})(\mathrm{X} - \mu_{\mathrm{X}})^T], \quad P_{\mathrm{YY}} = \mathbb{E}[(\mathrm{Y} - \mu_{\mathrm{Y}})(\mathrm{Y} - \mu_{\mathrm{Y}})^T] \\
+P_{\mathrm{XY}} = \mathbb{E}[(\mathrm{X} - \mu_{\mathrm{X}})(\mathrm{Y} - \mu_{\mathrm{Y}})^T] = P_{\mathrm{YX}}^T
+$$
+
+$$
+\mathrm{Z} = A\mathrm{X} \sim N(A\mu_{\mathrm{X}}, AP_{\mathrm{XX}}A^T)
+\tag{1.92}
+$$
+
+$$
+\mathrm{X} \sim N(\mu_{\mathrm{X}}, P_{\mathrm{XX}}), \mathrm{Y} \sim N(\mu_{\mathrm{Y}}, P_{\mathrm{YY}})
+\tag{1.93}
+$$
+
+$$
+p_{\mathrm{Y|X}}(\mathrm{y}|\mathrm{x}) = \frac{1}{\sqrt{(2\pi)^n \det P_{\mathrm{Y|X}}}} \exp\left( -\frac{1}{2} \{(\mathrm{y} - \mu_{\mathrm{Y|X}})^T P_{\mathrm{Y|X}}^{-1} (\mathrm{y} - \mu_{\mathrm{Y|X}}) \}\right)
+\tag{1.94}
+$$
+
+$$
+\begin{align*}
+&P_{\mathrm{Y|X}} = P_{\mathrm{YY}} - P_{\mathrm{YX}} P_{\mathrm{XX}}^{-1} P_{\mathrm{XY}} \\
+&\mu_{\mathrm{Y|X}} = \mu_{\mathrm{Y}} + P_{\mathrm{YX}} P_{\mathrm{XX}}^{-1} (\mathrm{x} - \mu_{\mathrm{X}})
+\end{align*}
+$$
