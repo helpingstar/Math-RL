@@ -743,3 +743,193 @@ $$
 &\mu_{\mathrm{Y|X}} = \mu_{\mathrm{Y}} + P_{\mathrm{YX}} P_{\mathrm{XX}}^{-1} (\mathrm{x} - \mu_{\mathrm{X}})
 \end{align*}
 $$
+
+$$
+X_t \equiv X_t(e)
+\tag{1.95}
+$$
+
+$$
+\mathrm{X}_t \equiv \mathrm{X}_t(e) = [X_{t,1}(e) \ X_{t,2}(e) \ \ldots \ X_{t,n}(e)]^T
+\tag{1.96}
+$$
+
+$$
+\mathrm{X}(t) \equiv \mathrm{X}(t, e) = [X_1(t, e) \ X_2(t, e) \ \ldots \ X_n(t, e)]^T
+\tag{1.97}
+$$
+
+$$
+{\text{μ}}_{\mathrm{X}_t} = \mathbb{E}[\mathrm{X}_t] = \int_{-\infty}^{\infty} \mathrm{x}_t p_{\mathrm{X}_t}(\mathrm{x}_t) d\mathrm{x}_t
+\tag{1.98}
+$$
+
+$$
+\begin{align*}
+R_{\mathrm{X}_k \mathrm{X}_l} &= \mathbb{E}[\mathrm{X}_k \mathrm{X}_l^T] \\
+&= \int_{-\infty}^{\infty} \mathrm{x}_k \mathrm{x}_l^T p_{\mathrm{X}_k \mathrm{X}_l}(\mathrm{x}_k, \mathrm{x}_l) d\mathrm{x}_k d\mathrm{x}_l \\
+&= \begin{bmatrix}
+\mathbb{E}[X_{k,1} X_{l,1}] & \cdots & \mathbb{E}[X_{k,1} X_{l,n}] \\
+\vdots & \ddots & \vdots \\
+\mathbb{E}[X_{k,n} X_{l,1}] & \cdots & \mathbb{E}[X_{k,n} X_{l,n}]
+\end{bmatrix}
+\end{align*}
+\tag{1.99}
+$$
+
+$$
+P_{\mathrm{X}_k \mathrm{X}_l} = \mathbb{E}[(\mathrm{X}_k - \mathbb{E}[\mathrm{X}_k])(\mathrm{X}_l - \mathbb{E}[\mathrm{X}_l])^T]
+\tag{1.100}
+$$
+
+$$
+R_{\mathrm{W}_t \mathrm{W}_{t+m}} = \mathbb{E}[\mathrm{W}_t \mathrm{W}_{t+m}^{T}]=S_t \delta_m
+\tag{1.101}
+$$
+
+$$
+\delta_m = \begin{cases}
+1, & m=0 \\
+0, & m \neq 0
+\end{cases}
+\tag{1.102}
+$$
+
+$$
+p_{\mathrm{X}_t}(\mathrm{x}_{t+1}|\mathrm{x}_t, \mathrm{x}_{t-1}, \ldots, \mathrm{x}_0) = p_{\mathrm{X}_t}(\mathrm{x}_{t+1}|\mathrm{x}_t)
+\tag{1.103}
+$$
+
+$$
+p_{\mathrm{X}}(\mathrm{x}(t)|\mathrm{x}(s), s \leq t_1) = p_{\mathrm{X}}(\mathrm{x}(t)|\mathrm{x}(t_1)), \quad \forall t \geq t_1
+\tag{1.104}
+$$
+
+$$
+\mathrm{X}_{t+1} = F_t \mathrm{X}_t + G_t \mathrm{W}_t
+\tag{1.105}
+$$
+
+$$
+\begin{align*}
+& \mathbb{E}[\mathrm{X}_0] = \overline{\mathrm{x}_0} \\
+& \mathbb{E}[(\mathrm{X}_0 - \overline{\mathrm{x}_0})(\mathrm{X}_0 - \overline{\mathrm{x}_0})^T] = P_0
+\end{align*}
+\tag{1.106}
+$$
+
+$$
+\begin{align*}
+&\mathbb{E}[\mathrm{W}_t] = 0 \\
+&\mathbb{E}[\mathrm{W}_t \mathrm{W}_{t+m}^T] = Q_t \delta_m
+\end{align*}
+\tag{1.107}
+$$
+
+$$
+\begin{align*}
+\mathbb{E}[\mathrm{X}_{t+1}] & = \mathbb{E}[F_t\mathrm{X}_t + G_t\mathrm{W}_t] \\
+& = F_t \mathbb{E}[\mathrm{X}_t] + G_t \mathbb{E}[\mathrm{W}_t] \\
+& = F_t \mathbb{E}[\mathrm{X}_t]
+\end{align*}
+\tag{1.108}
+$$
+
+$$
+\begin{align*}
+(\mathrm{X}_{t+1} &- \mathbb{E}[\mathrm{X}_{t+1}])(\mathrm{X}_{t+1} - \mathbb{E}[\mathrm{X}_{t+1}])^T \\
+& = (F_t\mathrm{X}_t + G_t \mathrm{W}_t - F_t\mathbb{E}[\mathrm{X}_t])(F_t\mathrm{X}_t + G_t \mathrm{W}_t - F_t\mathbb{E}[\mathrm{X}_t])^T \\
+& = F_t(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])^T F_t + G_t \mathrm{W}_t \mathrm{W}_t^TG_t^T \\
+& \qquad+ G_t \mathrm{W}_t (\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])^T F_t + F_t(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t]) \mathrm{W}_t^T
+\end{align*}
+\tag{1.109}
+$$
+
+$$
+\begin{align*}
+P_{t+1} &= \mathbb{E}[(\mathrm{X}_{t+1} - \mathbb{E}[\mathrm{X}_{t+1}])(\mathrm{X}_{t+1} - \mathbb{E}[\mathrm{X}_{t+1}])^T] \\
+&= F_t\mathbb{E}[(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])^T]F_t^T + G_t\mathbb{E}[\mathrm{W}_t \mathrm{W}_t^T]G_t^T \\
+& \qquad + G_t\mathbb{E}[\mathrm{W}_t(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])^T]F_t + F_t\mathbb{E}[(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])\mathrm{W}_t^T]G_t^T \\
+& = F_t P_t F_t^T + G_t Q_t G_t^T + G_t M_t^T F_t + F_t M_t G_t^T
+\end{align*}
+\tag{1.110}
+$$
+
+$$
+M_t = \mathbb{E}[(\mathrm{X}_t - \mathbb{E}[\mathrm{X}_t])\mathrm{W}_t^T] = 0
+\tag{1.111}
+$$
+
+---
+
+### 노트: p.52
+
+$$
+\begin{align*}
+& X_{t+1} = X_t + W, X_0 = 0, P_0 = 0 \\
+& \mathbb{E}[W_t^2]=q
+\end{align*}
+$$
+
+---
+
+$$
+\begin{align*}
+\mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[f(\mathrm{x})] &= \int_\mathrm{x} p(\mathrm{x})f(\mathrm{x})d\mathrm{x} \\
+& = \int_\mathrm{x} \frac{q(\mathrm{x})}{q(\mathrm{x})} p(\mathrm{x})f(\mathrm{x})d\mathrm{x} \\
+& = \int_\mathrm{x} q(\mathrm{x}) \frac{p(\mathrm{x})}{q(\mathrm{x})} f(\mathrm{x})d\mathrm{x} \\
+& = \mathbb{E}_{\mathrm{x} \sim q(\mathrm{x})}\left[ \frac{p(\mathrm{x})}{q(\mathrm{x})} f(\mathrm{x}) \right]
+\end{align*}
+\tag{1.112}
+$$
+
+$$
+Var_{p(\mathrm{x})}[f(\mathrm{x})] = \mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[(f(\mathrm{x}))^2] - (\mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[f(\mathrm{x})])^2
+\tag{1.113}
+$$
+
+$$
+\begin{align*}
+\text{Var}_{q(\mathrm{x})}\left[\frac{p(\mathrm{x})}{q(\mathrm{x})}f(\mathrm{x})\right] &= \mathbb{E}_{\mathrm{x} \sim q(\mathrm{x})}\left[\left(\frac{p(\mathrm{x})}{q(\mathrm{x})}f(\mathrm{x})\right)^2\right] - \left(\mathbb{E}_{\mathrm{x} \sim q(\mathrm{x})}\left[\frac{p(\mathrm{x})}{q(\mathrm{x})}f(\mathrm{x})\right]\right)^2 \\
+&= \int \left(\frac{p(\mathrm{x})}{q(\mathrm{x})}f(\mathrm{x})\right)^2 q(\mathrm{x})d\mathrm{x} - \left(\mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[f(\mathrm{x})]\right)^2 \\
+&= \int \left(f(\mathrm{x})\right)^2 \frac{p(\mathrm{x})}{q(\mathrm{x})} p(\mathrm{x}) d\mathrm{x} - \left(\mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[f(\mathrm{x})]\right)^2 \\
+&= \mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}\left[\left(\frac{p(\mathrm{x})}{q(\mathrm{x})}f(\mathrm{x})\right)^2\right] - \left(\mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[f(\mathrm{x})]\right)^2
+\end{align*}
+\tag{1.114}
+$$
+
+$$
+h(x) = -\log p(\mathrm{x})
+\tag{1.115}
+$$
+
+$$
+\mathcal{H}(p) = \mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[- \log p (\mathrm{x})] = -\int_\mathrm{x} p(\mathrm{x}) \log p(\mathrm{x}) d\mathrm{x}
+\tag{1.116}
+$$
+
+$$
+p(x) = \frac{1}{(2\pi\sigma^2)^{1/2}} \exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+\tag{1.117}
+$$
+
+$$
+\mathcal{H}(p) = \frac{1}{2}(1 + \log (2 \pi \sigma^2))
+\tag{1.118}
+$$
+
+$$
+\begin{align*}
+\mathcal{H}(p, q) &= \mathbb{E}_{\mathrm{x} \sim p(\mathrm{x})}[- \log q (\mathrm{x})] \\
+&= - \int_\mathrm{x} p(\mathrm{x}) \log q(\mathrm{x}) d\mathrm{x}
+\end{align*}
+\tag{1.119}
+$$
+
+$$
+\begin{align*}
+D_{KL}(p(\mathrm{x}) \| q(\mathrm{x})) &= -\int_\mathrm{x} p(\mathrm{x})\log q(\mathrm{x}) d\mathrm{x} - \left(-\int_\mathrm{x} p(\mathrm{x})\log p(\mathrm{x}) d\mathrm{x}\right) \\
+&= \int_\mathrm{x} p(\mathrm{x}) \log \frac{p(\mathrm{x})}{q(\mathrm{x})} d\mathrm{x}
+\end{align*}
+\tag{1.120}
+$$
