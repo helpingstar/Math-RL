@@ -933,3 +933,113 @@ D_{KL}(p(\mathrm{x}) \| q(\mathrm{x})) &= -\int_\mathrm{x} p(\mathrm{x})\log q(\
 \end{align*}
 \tag{1.120}
 $$
+
+$$
+D_{KL}(p(\mathrm{x}) \| q(\mathrm{x})) \neq D_{KL}(q(\mathrm{x}) \| p(\mathrm{x}))
+\tag{1.121}
+$$
+
+$$
+\mathbb{E}[f(g(\mathrm{x}))] \leq f(\mathbb{E}[g(\mathrm{x})])
+\tag{1.122}
+$$
+
+$$
+\begin{align*}
+D_{KL}(p(\mathrm{x}) || q(\mathrm{x})) &= \int_{\mathrm{x}} p(\mathrm{x}) \log \frac{p(\mathrm{x})}{q(\mathrm{x})} d\mathrm{x} = -\int_{\mathrm{x}} p(\mathrm{x}) \log \frac{q(\mathrm{x})}{p(\mathrm{x})} d\mathrm{x} \\
+&\geq -\log \mathbb{E} \left[ \frac{q(\mathrm{x})}{p(\mathrm{x})} \right] = -\log \int_{\mathrm{x}} p(\mathrm{x}) \frac{q(\mathrm{x})}{p(\mathrm{x})} d\mathrm{x} \\
+&= -\log \int_{\mathrm{x}} q(\mathrm{x}) d\mathrm{x} = -\log 1 = 0
+\end{align*}
+\tag{1.123}
+$$
+
+$$
+D_{KL}(p(\mathrm{x}) || q(\mathrm{x})) = \frac{1}{2} \left( tr(P_q^{-1} P_p) + (\mu_q - \mu_p)^T P_q^{-1} (\mu_q - \mu_p) - n + \log \frac{\det P_q}{\det P_p} \right)
+\tag{1.124}
+$$
+
+$$
+\begin{align*}
+\underset{q}{\text{argmin}} D_{KL}(p||q) &= \underset{q}{\text{argmin}} \left\{ -\int_{\mathrm{x}} p(\mathrm{x})\log q(\mathrm{x}) d\mathrm{x} + \int_{\mathrm{x}} p(\mathrm{x})\log p(\mathrm{x}) d\mathrm{x} \right\} \\
+&= \underset{q}{\text{argmin}} \left\{ -\int_{\mathrm{x}} p(\mathrm{x})\log q(\mathrm{x}) d\mathrm{x} \right\} \\
+&= \underset{q}{\text{argmin}} \mathcal{H}(p, q)
+\end{align*}
+\tag{1.125}
+$$
+
+$$
+\hat{\mathrm{x}} = g(\mathrm{z})
+\tag{1.126}
+$$
+
+$$
+p(\mathrm{x} \vert \mathrm{z}) = \frac{p(\mathrm{z}|\mathrm{x})p(\mathrm{x})}{p(\mathrm{z})}
+\tag{1.127}
+$$
+
+$$
+\begin{align*}
+\hat{\mathrm{x}}^{MAP} &= \text{argmax} \ p(\mathrm{x}|\mathrm{z}) \\
+&=\text{argmax}[p(\mathrm{z}|\mathrm{x})p(\mathrm{x})]
+\end{align*}
+\tag{1.128}
+$$
+
+$$
+\hat{\mathrm{x}}^{ML} = \text{argmax} \ p(\mathrm{z}(\mathrm{x}))
+\tag{1.129}
+$$
+
+$$
+\hat{\mathrm{x}}^{ML} = \text{argmax} \ p(\mathrm{z} \vert \mathrm{x})
+\tag{1.130}
+$$
+
+---
+
+### 노트: p.62
+
+$$
+z = x + v
+$$
+
+$$
+v \sim N(0, \sigma_v^2)
+$$
+
+$$
+p(z \vert x) = N(z \vert x, \sigma_v^2) = \frac{1}{\sqrt{2 \pi \sigma_v^2}} \exp \left( - \frac{(z-x)^2}{2\sigma_v^2} \right)
+$$
+
+$$
+\hat{x}^{ML} = \text{argmax} \ p(z \vert x) = z
+$$
+
+$$
+p(x) = N(x \vert \overline{x}, \sigma_x^2)
+$$
+
+$$
+\begin{align*}
+p(x|z) &= \frac{p(z|x)p(x)}{p(z)} \\
+&= \frac{p(z|x)p(x)}{\int p(z|x) p(x) dx} \\
+&= \frac{1}{c_0} \exp \left( -\frac{(z - x)^2}{2\sigma_v^2} - \frac{(x - \bar{x})^2}{2\sigma_x^2} \right)
+\end{align*}
+$$
+
+$$
+p(x \vert z) = \frac{1}{c_1} \exp \left( -\frac{(x - \hat{x}(z))^2}{2 \sigma_1^2} \right)
+$$
+
+$$
+\hat{x}(z) = \overline{x} + \frac{\sigma_x^2}{\sigma_x^2 + \sigma_v^2} (z - \overline{x}), \quad \sigma_1^2 = \frac{\sigma_x^2 \sigma_v^2}{\sigma_x^2 + \sigma_v^2}, \quad c_1 = \frac{1}{\sqrt{2\pi\sigma_1^2}}
+$$
+
+$$
+\begin{align*}
+\hat{x}^{MAP} &= \text{argmax} \ p(x|z) = \hat{x}(z) \\
+&= \overline{x} + \frac{\sigma_x^2}{\sigma_x^2 + \sigma_v^2}(z - \overline{x})
+\end{align*}
+$$
+
+---
