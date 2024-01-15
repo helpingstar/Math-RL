@@ -1043,3 +1043,231 @@ $$
 $$
 
 ---
+
+$$
+\frac{df(\mathrm{x})}{d\mathrm{x}} = \nabla_\mathrm{x} f(\mathrm{x}) = \left[ \begin{array}{c}
+\frac{\partial f}{\partial x_1} \\
+\frac{\partial f}{\partial x_2} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+\end{array} \right] \in R^n
+\tag{1.131}
+$$
+
+$$
+f(\mathrm{x}) = \mathrm{w}^T\mathrm{x} = w_1 x_1 + w_2 x_2 + \cdots + w_n x_n
+\tag{1.132}
+$$
+
+$$
+\nabla_\mathrm{x} f(\mathrm{x}) = \left[ \begin{array}{c}
+\frac{\partial f}{\partial x_1} \\
+\frac{\partial f}{\partial x_2} \\
+\vdots \\
+\frac{\partial f}{\partial x_n}
+\end{array} \right]
+= \left[ \begin{array}{c}
+w_1 \\
+w_2 \\
+\cdots \\
+w_n
+\end{array} \right] = \mathrm{w}
+\tag{1.133}
+$$
+
+$$
+\begin{align*}
+f(\mathrm{x}) &= a_{11}x_1^2 + a_{12}x_1x_2 + \cdots + a_{1n}x_1x_n \\
+& \quad + a_{21}x_2x_1 + a_{22}x_2^2 + \cdots + a_{2n}x_2x_n \\
+& \quad + \cdots \\
+& \quad + a_{n1}x_nx_1 + a_{n2}x_nx_2 + \cdots + a_{nn}x_n^2
+\end{align*}
+\tag{1.134}
+$$
+
+$$
+\begin{align*}
+\nabla_\mathrm{x} f(\mathrm{x}) &= \nabla_\mathrm{x} \mathrm{x}^T \mathrm{A} \mathrm{x} \tag{1.135} \\
+& = \left[ \begin{array}{c}
+2a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n + a_{21}x_2 + \cdots + a_{1n}x_n \\
+a_{12}x_1 + a_{21}x_1 +  2a_{22}x_2 + \cdots + a_{2n}x_n + a_{32}x_2 + \cdots + a_{n2}x_n \\
+\vdots \\
+a_{1n}x_1 + a_{2n}x_2 + \cdots + a_{n1}x_1 + a_{n2}x_2 + \cdots + 2a_{nn}x_n \\
+\end{array} \right] \\
+&= (\mathrm{A} + \mathrm{A}^T)\mathrm{x}
+\end{align*}
+$$
+
+$$
+\frac{dg(\mathrm{x})}{d\mathrm{x}} = \nabla_\mathrm{x} g(\mathrm{x}) = \left[ \begin{array}{ccc}
+\frac{\partial g_1}{\partial x_1} & \frac{\partial g_2}{\partial x_1} & \cdots & \frac{\partial g_m}{\partial x_1} \\
+\frac{\partial g_1}{\partial x_2} & \frac{\partial g_2}{\partial x_2} & \cdots & \frac{\partial g_m}{\partial x_2} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial g_1}{\partial x_n} & \frac{\partial g_2}{\partial x_n} & \cdots & \frac{\partial g_m}{\partial x_n}
+\end{array} \right] \in R^{n \times m}
+\tag{1.136}
+$$
+
+$$
+\begin{align*}
+\nabla_\mathrm{x} g(\mathrm{x}) = \nabla_\mathrm{x} \mathrm{A}\mathrm{x} & = \nabla_x \left[ \begin{array}{c}
+a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n \\
+a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n \\
+\vdots \\
+a_{n1}x_1 + a_{n2}x_2 + \cdots + a_{nn}x_n
+\end{array} \right] \\
+&= \left[ \begin{array}{ccc}
+a_{11} & a_{21} & \cdots & a_{n1} \\
+a_{12} & a_{22} & \cdots & a_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{1n} & a_{2n} & \cdots & a_{nn}
+\end{array} \right] = \mathrm{A}^T
+\end{align*}
+\tag{1.137}
+$$
+
+$$
+\begin{align*}
+\frac{d \nabla_\mathrm{x} f(\mathrm{x})}{d\mathrm{x}} = \nabla_x (\nabla_\mathrm{x} f(\mathrm{x})) = \nabla_\mathrm{x}^2 f(\mathrm{x}) = \left[ \begin{array}{ccc}
+\frac{\partial^2 f}{\partial x_1^2} & \frac{\partial^2 f}{\partial x_1 \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_1 \partial x_n} \\
+\frac{\partial^2 f}{\partial x_2 \partial x_1} & \frac{\partial^2 f}{\partial x_2^2} & \cdots & \frac{\partial^2 f}{\partial x_2 \partial x_n} \\
+\vdots & \vdots & \ddots & \vdots \\
+\frac{\partial^2 f}{\partial x_n \partial x_1} & \frac{\partial^2 f}{\partial x_n \partial x_2} & \cdots & \frac{\partial^2 f}{\partial x_n^2}
+\end{array} \right]
+\end{align*}
+\tag{1.138}
+$$
+
+$$
+\begin{align*}
+\frac{df(\mathrm{Y})}{d\mathrm{Y}} = \nabla_{\mathrm{Y}} f(\mathrm{Y}) = \left[ \begin{array}{ccc}
+\frac{\partial f}{\partial y_{11}} & \frac{\partial f}{\partial y_{12}} & \cdots & \frac{\partial f}{\partial y_{1n}} \\
+\frac{\partial f}{\partial y_{21}} & \frac{\partial f}{\partial y_{22}} & \cdots & \frac{\partial f}{\partial y_{2n}} \\
+\vdots & \vdots & \ddots &
+\vdots \\
+\frac{\partial f}{\partial y_{m1}} & \frac{\partial f}{\partial y_{m2}} & \cdots & \frac{\partial f}{\partial y_{mn}}
+\end{array} \right] \in \mathbb{R}^{m \times n}
+\end{align*}
+\tag{1.139}
+$$
+
+$$
+\begin{align*}
+\nabla_{\mathrm{X}} f(\mathrm{X}) &= \nabla_{\mathrm{X}} tr(\mathrm{W}\mathrm{X}) \\
+&= \nabla_{\mathrm{X}} (w_{11}x_{11} + w_{12}x_{21} + \cdots + w_{1n}x_{n1} \\
+& \qquad + w_{21}x_{12} + w_{22}x_{22} + \cdots + w_{2n}x_{n2} \\
+& \qquad + \cdots \\
+& \qquad + w_{n1}x_{1n} + w_{n2}x_{2n} + \cdots + w_{nn}x_{nn}) \\
+&= \left[ \begin{array}{cccc}
+w_{11} & w_{21} & \cdots & w_{n1} \\
+w_{12} & w_{22} & \cdots & w_{n2} \\
+\vdots & \vdots & \ddots & \vdots \\
+w_{1n} & w_{2n} & \cdots & w_{nn}
+\end{array} \right] = \mathrm{W}^T
+\end{align*}
+\tag{1.140}
+$$
+
+$$
+\nabla_\mathrm{x}f(\mathrm{X}) = \nabla_\mathrm{x} \det (\mathrm{X}) = adj^T(\mathrm{X})
+\tag{1.141}
+$$
+
+$$
+\begin{align*}
+\nabla_\mathrm{x}f(\mathrm{X}) = \nabla_\mathrm{x} \log(\det(\mathrm{X})) & = \frac{\nabla_{\mathrm{x}} \det(\mathrm{X})}{\det (\mathrm{X})} \\
+& = \frac{adj^T (\mathrm{X})}{\det (\mathrm{X})} = \mathrm{X}^{-T}
+\end{align*}
+\tag{1.142}
+$$
+
+---
+
+### 용어 설명 : p.68
+
+$$
+\mathrm{X}^{-1} = \frac{\left[ \begin{array}{cc}
+x_{22} & -x_{12} \\
+-x_{21} & x_{11}
+\end{array} \right]}{(x_{11}x_{22} - x_{12}x_{21})} = \frac{adj(\mathrm{X})}{\det(\mathrm{X})}
+$$
+
+$$
+\nabla_{\mathrm{X}} \det(\mathrm{X}) = \left[ \begin{array}{cc}
+x_{22} & -x_{21} \\
+-x_{12} & x_{11}
+\end{array} \right] = adj^T(\mathrm{X})
+$$
+
+---
+
+$$
+\mathrm{A} = \mathrm{L}\mathrm{L}^T = \mathrm{U}^T\mathrm{U}
+\tag{1.143}
+$$
+
+$$
+\mathrm{A}^{-1} = \mathrm{L}^{-T}\mathrm{L}^{-1} = \mathrm{U}^{-1}\mathrm{U}^{-T}
+\tag{1.144}
+$$
+
+$$
+\det \mathrm{A} = (\det\mathrm{L})^2 = (\det\mathrm{U})^2
+\tag{1.145}
+$$
+
+---
+
+### 용어 설명 : p.69
+
+$$
+\mathrm{x}^T\mathrm{Ax} > 0, \quad \forall\mathrm{x} \neq 0
+$$
+
+$$
+\mathrm{x}^T\mathrm{Ax} \geq 0, \quad \forall\mathrm{x}
+$$
+
+---
+
+$$
+\theta^{*} = \underset{\theta}{\text{argmin}} \ L(\theta), \theta \in R^n
+\tag{1.146}
+$$
+
+$$
+L(\theta + \eta\mathrm{d}) \approx L(\theta) + \nabla_\theta^T L(\theta) \eta \mathrm{d}
+\tag{1.147}
+$$
+
+$$
+\nabla_{\theta} L(\theta) = \left[ \begin{array}{c}
+\frac{\partial L(\theta)}{\partial \theta_1} \\
+\frac{\partial L(\theta)}{\partial \theta_2} \\
+\vdots \\
+\frac{\partial L(\theta)}{\partial \theta_n}
+\end{array} \right]
+\tag{1.148}
+$$
+
+$$
+\begin{align*}
+L(\theta) - L(\theta + \eta \mathrm{d}) & \approx - \nabla_\theta^T L(\theta)\eta \mathrm{d} \\
+&= -\cos(\phi) \vert \nabla_\theta L(\theta) \vert \eta
+\end{align*}
+\tag{1.149}
+$$
+
+$$
+\mathrm{d} = -\frac{\nabla_\theta L(\theta)}{\vert \nabla_\theta L(\theta) \vert}
+\tag{1.150}
+$$
+
+$$
+\begin{align*}
+\theta + \eta \mathrm{d} & = \theta - \eta \frac{\nabla_\theta L(\theta)}{\vert \nabla_\theta L(\theta) \vert} \\
+& = \theta - \alpha \nabla_\theta L(\theta),\quad \alpha > 0
+\end{align*}
+\tag{1.151}
+$$
+
