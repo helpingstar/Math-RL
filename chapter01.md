@@ -576,8 +576,9 @@ $$
 x_1 \\
 \vdots \\
 x_n
-\end{bmatrix} p_\mathrm{X}(\mathrm{x}) \mathrm{dx}\tag{1.74}
+\end{bmatrix} p_\mathrm{X}(\mathrm{x}) \mathrm{dx}
 \end{align*}
+\tag{1.74}
 $$
 
 $$
