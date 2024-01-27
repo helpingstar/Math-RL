@@ -1272,3 +1272,85 @@ $$
 \tag{1.151}
 $$
 
+$$
+L(\theta; \mathrm{x}^{(1,...,m)}, y^{(1,...,m)}) = \frac{1}{2m} \sum_{i=1}^{m} (y^{(i)} - h_\theta(\mathrm{x}^{(i)}))^2, \quad \theta \in R^n
+\tag{1.152}
+$$
+
+$$
+\nabla_{\theta_j} L(\theta; \mathrm{x}^{(1:m)}, y^{(1:m)}) = -\frac{1}{m} \sum_{i=1}^{m} (y^{(i)} - h_\theta(\mathrm{x}^{(i)})) \frac{\partial h_\theta}{\partial \theta_j}, \quad j=1, ..., n
+\tag{1.153}
+$$
+
+$$
+y^{(i)} = h_\theta(\mathrm{x}^{(i)}) + \epsilon^{(i)}, \quad i, ..., m
+\tag{1.154}
+$$
+
+$$
+p(\epsilon^{(i)}) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp \left\{-\frac{(\epsilon^{(i)})^2}{2\sigma^2}\right\}
+\tag{1.155}
+$$
+
+$$
+p(y^{(i)} \vert \mathrm{x}^{(i)}) = \frac{1}{\sqrt{2\pi\sigma^2}} \exp\left\{-\frac{(y^{(i)} - h_\theta(\mathrm{x}^{(i)}))^2}{2\sigma^2}\right\}
+\tag{1.156}
+$$
+
+$$
+\begin{align*}
+L(\theta) & = p(y^{(1)}, y^{(2)}, \ldots, y^{(m)} | \mathrm{x}^{(1)}, \mathrm{x}^{(2)}, \ldots, \mathrm{x}^{(m)}) \\
+&= p(y^{(1)} \vert \mathrm{x}^{(1)}) p(y^{(2)} \vert \mathrm{x}^{(2)}) \cdots p(y^{(m)} \vert \mathrm{x}^{(m)}) \\
+&= \prod_{i=1}^{m} p(y^{(i)}|\mathrm{x}^{(i)})
+\end{align*}
+\tag{1.157}
+$$
+
+$$
+\begin{align*}
+\log L(\theta) &= \log \prod_{i=1}^{m} p(y^{(i)}|\mathrm{x}^{(i)}) \\
+&= \sum_{i=1}^{m} \log p(y^{(i)}|\mathrm{x}^{(i)}) \\
+&= m \log \frac{1}{\sqrt{2\pi\sigma^2}} - \frac{1}{2\sigma^2} \sum_{i=1}^{m} (y^{(i)} - h_\theta(\mathrm{x}^{(i)}))^2
+\end{align*}
+\tag{1.158}
+$$
+
+$$
+\max_{\theta} \log L(\theta) = \min_{\theta} \frac{1}{2} \sum_{i=1}^{m} (y^{(i)} - h_\theta(\mathrm{x}^{(i)}))^2
+\tag{1.159}
+$$
+
+$$
+\begin{align*}
+& P \{ y=1 \vert \mathrm{x}\} = h_\theta(\mathrm{x}) \\
+& P \{ y=0 \vert \mathrm{x}\} = 1 - h_\theta(\mathrm{x})
+\end{align*}
+\tag{1.160}
+$$
+
+$$
+P \{ y \vert \mathrm{x}\} = (h_\theta(\mathrm{x}))^y(1 - h_\theta(\mathrm{x}))^{(1-y)}
+\tag{1.161}
+$$
+
+$$
+\begin{align*}
+L(\theta) & = p(y^{(1)}, y^{(2)}, \ldots, y^{(m)} | \mathrm{x}^{(1)}, \mathrm{x}^{(2)}, \ldots, \mathrm{x}^{(m)}) \\
+&= \prod_{i=1}^{m} p(y^{(i)}|\mathrm{x}^{(i)}) \\
+&= \prod_{i=1}^{m} h_\theta(\mathrm{x}^{(i)})^{y^{(i)}} (1 - h_\theta(\mathrm{x}^{(i)}))^{1-y^{(i)}}
+\end{align*}
+\tag{1.162}
+$$
+
+$$
+\begin{align*}
+\log L(\theta) &= \log \prod_{i=1}^{m} h_\theta(\mathrm{x}^{(i)})^{y^{(i)}} (1 - h_\theta(\mathrm{x}^{(i)}))^{1-y^{(i)}} \\
+&= \sum_{i=1}^{m} y^{(i)} \log h_\theta(\mathrm{x}^{(i)}) + (1 - y^{(i)}) \log (1 - h_\theta(\mathrm{x}^{(i)}))
+\end{align*}
+\tag{1.163}
+$$
+
+$$
+\max_{\theta} \log L(\theta) = \min_{\theta} \left\{ -\sum_{i=1}^{m} [y^{(i)} \log h_\theta(\mathrm{x}^{(i)}) + (1 - y^{(i)}) \log (1 - h_\theta(\mathrm{x}^{(i)}))] \right\}
+\tag{1.164}
+$$
