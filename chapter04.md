@@ -20,13 +20,13 @@ $$
 
 $$
 \begin{align*}
-\nabla_\theta J(\theta) & = \sum_{t=0}^T \int_{\tau_{\mathrm{x}_0:\mathrm{u}_t}} \int_{\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T}} \left( \gamma^t \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t)) \left( \sum_{k=t}^T \gamma^{k-t} r(\mathrm{x}_k, \mathrm{u}_k) \right) \right) \\
+\nabla_\theta J(\theta) & = \sum_{t=0}^T \int_{\tau_{\mathrm{x}_0:\mathrm{u}_t}} \int_{\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T}} \left( \gamma^t \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) \left( \sum_{k=t}^T \gamma^{k-t} r(\mathrm{x}_k, \mathrm{u}_k) \right) \right) \\
 
 & \qquad p_\theta(\tau_{\mathrm{x}_0:\mathrm{u}_t}, \tau_{\mathrm{x}_{t+1}:\mathrm{u}_T}) d\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T} d\tau_{\mathrm{x}_0:\mathrm{u}_t} \\
 
-& = \sum_{t=0}^T \int_{\tau_{\mathrm{x}_0:\mathrm{u}_t}} \int_{\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T}} \left( \gamma^t \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t)) \left( \sum_{k=t}^T \gamma^{k-t} r(\mathrm{x}_k, \mathrm{u}_k) \right) \right) \\
+& = \sum_{t=0}^T \int_{\tau_{\mathrm{x}_0:\mathrm{u}_t}} \int_{\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T}} \left( \gamma^t \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) \left( \sum_{k=t}^T \gamma^{k-t} r(\mathrm{x}_k, \mathrm{u}_k) \right) \right) \\
 
-& \qquad p_\theta(\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T}, \tau_{\mathrm{x}_{0}:\mathrm{u}_t})p_\theta(\tau_{\mathrm{x}_0: \mathrm{u}_t}) d\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T} d\tau_{\mathrm{x}_0:\mathrm{u}_t} \\
+& \qquad p_\theta(\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T} \vert \tau_{\mathrm{x}_{0}:\mathrm{u}_t})p_\theta(\tau_{\mathrm{x}_0: \mathrm{u}_t}) d\tau_{\mathrm{x}_{t+1}:\mathrm{u}_T} d\tau_{\mathrm{x}_0:\mathrm{u}_t} \\
 
 &= \sum_{t=0}^T \int_{\tau_{\mathrm{x}_0:\mathrm{u}_t}} \gamma^t \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) \\
 
@@ -78,7 +78,7 @@ $$
 
 $$
 \begin{align*}
-\nabla_\theta J(\theta) &= \sum_{t=0}^T \left( \int_{(\mathrm{x}_t, \mathrm{u}_t)} \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) b(\mathrm{u}_t | \mathrm{x}_t) p_\theta(\mathrm{x}_t) d\mathrm{x}_t d\mathrm{u}_t \right) \\
+\nabla_\theta J(\theta) &= \sum_{t=0}^T \left( \int_{(\mathrm{x}_t, \mathrm{u}_t)} \nabla_\theta \log \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) b_t \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) p_\theta(\mathrm{x}_t) d\mathrm{x}_t d\mathrm{u}_t \right) \\
 
 &= \sum_{t=0}^T \left( \int_{(\mathrm{x}_t, \mathrm{u}_t)} \nabla_\theta \pi_\theta(\mathrm{u}_t | \mathrm{x}_t) b_t p_\theta(\mathrm{x}_t) d\mathrm{x}_t d\mathrm{u}_t \right) \\
 
