@@ -125,115 +125,75 @@ $$
 $$
 
 $$
-
+\nabla_{\theta} J(\theta) \approx \sum_{t=0}^{T} \left[ \frac{1}{M} \sum_{m=1}^{M} ( \nabla_{\theta} \log \pi_{\theta}(\mathrm{u}_t^{(m)} | \mathrm{x}_t^{(m)}) A^{\pi_{\theta}}(\mathrm{x}_t^{(m)}, \mathrm{u}_t^{(m)})) \right]
 \tag{4.14}
 $$
 
 $$
-
+\nabla_{\theta} J(\theta) \approx \sum_{t=0}^{T} \left( \nabla_{\theta} \log \pi_{\theta}(\mathrm{u}_t | \mathrm{x}_t)  A^{\pi_{\theta}}(\mathrm{x}_t, \mathrm{u}_t)\right)
 \tag{4.15}
 $$
 
 $$
-
+Q^{\pi}(\mathrm{x}_t, \mathrm{u}_t) = r(\mathrm{x}_t, \mathrm{u}_t) + \mathbb{E}_{\mathrm{x}_{t+1} \sim p(\mathrm{x}_{t+1}|\mathrm{x}_t,\mathrm{u}_t)} \left[ \gamma V^{\pi}(\mathrm{x}_{t+1}) \right]
 \tag{4.16}
 $$
 
 $$
-
+\begin{align*}
+A^{\pi_{\theta}}(\mathrm{x}_t, \mathrm{u}_t) &= Q^{\pi_{\theta}}(\mathrm{x}_t, \mathrm{u}_t) - V^{\pi_{\theta}}(\mathrm{x}_t) \\
+& \approx r(\mathrm{x}_t, \mathrm{u}_t) + \gamma V^{\pi_{\theta}}(\mathrm{x}_{t+1}) - V^{\pi_{\theta}}(\mathrm{x}_t)
+\end{align*}
 \tag{4.17}
 $$
 
 $$
-
+V^{\pi}(\mathrm{x}_t) = \mathbb{E}_{\mathrm{u}_t \sim \pi(\mathrm{u}_t|\mathrm{x}_t)} \left[ r(\mathrm{x}_t, \mathrm{u}_t) + \mathbb{E}_{\mathrm{x}_{t+1} \sim p(\mathrm{x}_{t+1}|\mathrm{x}_t, \mathrm{u}_t)} \left[ \gamma V^{\pi}(\mathrm{x}_{t+1}) \right] \right]
 \tag{4.18}
 $$
 
 $$
-
+V_\phi(\mathrm{x}_t) \approx r(\mathrm{x}_t, \mathrm{u}_t) + \gamma V_\phi(\mathrm{x}_{t+1})
 \tag{4.19}
 $$
 
 $$
-
+Loss_{critic}(\phi) = \frac{1}{2} \sum_i \left\| r(\mathrm{x}_i, \mathrm{u}_i) + \gamma V_{\phi}(\mathrm{x}_{i+1}) - V_{\phi}(\mathrm{x}_i) \right\|^2
 \tag{4.20}
 $$
 
 $$
-
+A_\phi (\mathrm{x}_i, \mathrm{u}_i) \approx r(\mathrm{x}_i, \mathrm{u}_i) + \gamma V_\phi(\mathrm{x}_{i+1}) - V_\phi(\mathrm{x}_i)
 \tag{4.21}
 $$
 
 $$
-
+Loss_{actor}(\theta) \approx -\sum_i \left( \log \pi_{\theta}(\mathrm{u}_i | \mathrm{x}_i) A_{\phi}(\mathrm{x}_i, \mathrm{u}_i) \right)
 \tag{4.22}
 $$
 
 $$
-
+\theta \leftarrow \theta - \alpha \nabla_{\theta} \sum_i  - \left( \log \pi_{\theta}(\mathrm{u}_i | \mathrm{x}_i) A_{\phi}(\mathrm{x}_i, \mathrm{u}_i)\right)
 \tag{4.23}
 $$
 
 $$
-
+\begin{align*}
+\pi_{\theta}(\mathrm{u}_t | \mathrm{x}_t) &= \frac{1}{\sqrt{(2\pi)^m \det P_{\theta}}} \exp \left\{ -\frac{1}{2} (\mathrm{u}_t - \mu_{\theta}(\mathrm{x}_t))^T P_{\theta}^{-1} (\mathrm{u}_t - \mu_{\theta}(\mathrm{x}_t)) \right\} \\
+&= \prod_{j=1}^m \pi_{\theta}(u_{t,j} | \mathrm{x}_t)
+\end{align*}
 \tag{4.24}
 $$
 
 $$
-
+\pi_{\theta}(u_{t,j} | \mathrm{x}_t) = \frac{1}{\sqrt{2\pi \sigma^2_{\theta,j}(\mathrm{x}_t)}} \exp \left\{ -\frac{(u_{t,j} - \mu_{\theta,j}(\mathrm{x}_t))^2}{2\sigma^2_{\theta,j}(\mathrm{x}_t)} \right\}
 \tag{4.25}
 $$
 
 $$
-
+\begin{align*}
+\log \pi_{\theta}(\mathrm{u}_t | \mathrm{x}_t) &= \sum_{j=1}^m \log \pi_{\theta}(u_{t,j} | \mathrm{x}_t) \\
+&= -\sum_{j=1}^m \left[ \frac{(u_{t,j} - \mu_{\theta,j}(\mathrm{x}_t))^2}{2\sigma_{\theta,j}^2(\mathrm{x}_t)}  + \frac{1}{2} \log(2\pi\sigma_{\theta,j}^2(\mathrm{x}_t))\right]
+\end{align*}
 \tag{4.26}
 $$
-
-$$
-
-\tag{4.27}
-$$
-
-$$
-
-\tag{4.28}
-$$
-
-$$
-
-\tag{4.29}
-$$
-
-$$
-
-\tag{4.30}
-$$
-
-$$
-
-\tag{4.31}
-$$
-
-$$
-
-\tag{4.32}
-$$
-
-$$
-
-\tag{4.33}
-$$
-
-$$
-
-\tag{4.34}
-$$
-
-$$
-
-\tag{4.35}
-$$
-
-$$
-
-\tag{4.36}
