@@ -38,12 +38,14 @@ A_{\phi}(\mathrm{x}_t, \mathrm{u}_t) \approx \sum_{k=t}^{\infty} \gamma^{k-t} r(
 $$
 
 $$
-V_{\phi}(\mathrm{x}_t) \approx r(\mathrm{x}_t, \mathrm{u}_t) + \gamma r(\mathrm{x}_{t+1}, \mathrm{u}_{t+1}) + \ldots + \gamma^{n-1} r(\mathrm{x}_{t+n-1}, \mathrm{u}_{t+n-1}) + \gamma^n V_{\phi}(\mathrm{x}_{t+n}) \\
+\begin{align*}
+&V_{\phi}(\mathrm{x}_t) \approx r(\mathrm{x}_t, \mathrm{u}_t) + \gamma r(\mathrm{x}_{t+1}, \mathrm{u}_{t+1}) + \ldots + \gamma^{n-1} r(\mathrm{x}_{t+n-1}, \mathrm{u}_{t+n-1}) + \gamma^n V_{\phi}(\mathrm{x}_{t+n}) \\
 
-A_{\phi}(\mathrm{x}_t, \mathrm{u}_t) \approx r(\mathrm{x}_t, \mathrm{u}_t) + \gamma r(\mathrm{x}_{t+1}, \mathrm{u}_{t+1}) + \ldots + \gamma^{n-1} r(\mathrm{x}_{t+n-1}, \mathrm{u}_{t+n-1}) \\
+&A_{\phi}(\mathrm{x}_t, \mathrm{u}_t) \approx r(\mathrm{x}_t, \mathrm{u}_t) + \gamma r(\mathrm{x}_{t+1}, \mathrm{u}_{t+1}) + \ldots + \gamma^{n-1} r(\mathrm{x}_{t+n-1}, \mathrm{u}_{t+n-1}) \\
 
-+ \gamma^n V_{\phi}(\mathrm{x}_{t+n}) - V_{\phi}(\mathrm{x}_t) \\
+& \qquad \qquad \qquad + \gamma^n V_{\phi}(\mathrm{x}_{t+n}) - V_{\phi}(\mathrm{x}_t) \\
 
-\sum_{k=t}^{t+n-1} \gamma^{k-t} r(\mathrm{x}_k, \mathrm{u}_k) + \gamma^n V_{\phi}(\mathrm{x}_{t+n}) - V_{\phi}(\mathrm{x}_t)
+&\qquad \qquad =\sum_{k=t}^{t+n-1} \gamma^{k-t} r(\mathrm{x}_k, \mathrm{u}_k) + \gamma^n V_{\phi}(\mathrm{x}_{t+n}) - V_{\phi}(\mathrm{x}_t)
+\end{align*}
 \tag{5.8}
 $$

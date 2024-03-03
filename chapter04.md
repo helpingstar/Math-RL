@@ -173,7 +173,7 @@ Loss_{actor}(\theta) \approx -\sum_i \left( \log \pi_{\theta}(\mathrm{u}_i | \ma
 $$
 
 $$
-\theta \leftarrow \theta - \alpha \nabla_{\theta} \sum_i  - \left( \log \pi_{\theta}(\mathrm{u}_i | \mathrm{x}_i) A_{\phi}(\mathrm{x}_i, \mathrm{u}_i)\right)
+\theta \leftarrow \theta - \alpha \nabla_\theta \sum_i - (\log\pi_\theta(\mathrm{u}_t \vert \mathrm{x}_t) A_\phi (\mathrm{x}_i, \mathrm{u}_i))
 \tag{4.23}
 $$
 
